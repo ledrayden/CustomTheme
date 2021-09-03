@@ -1,15 +1,20 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Button } from 'react-native';
 import { useTheme } from '../contexts/ThemeProvider';
 
 
 
 const Home = () => {
+    const { theme, updateTheme } = useTheme();
     // const {theme} = useTheme();
-    // console.log(theme);
+    // console.log(theme);  
+    
+    const changeTheme = () => updateTheme(theme.themeMode)
+
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Custom bottom tab navigation!</Text>
+        <View style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
+            <Text style={[styles.text, {color: theme.textColor}]}>Custom bottom tab navigation!</Text>
+            <Button title='change theme' onPress={changeTheme} color={theme.nav.backgroundColor} />
         </View>
     )
 }
@@ -18,13 +23,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#76a6ef'
+        alignItems: 'center',        
     },
     text: {
         fontSize: 20,
-        fontWeight: 'bold',
-        color: '#fff'
+        fontWeight: 'bold',        
     }
 })
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, StyleSheet, Text, Button } from 'react-native';
-import Test from './Test';
-
+import { useTheme } from '../contexts/ThemeProvider';
 
 
 const Profile = ({navigation}) => {
+    const {theme} = useTheme();
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Profile</Text>
+        <View style={[styles.container, {backgroundColor: theme.backgroundColor}]}>
+            <Text style={[styles.text, {color: theme.textColor}]}>Profile</Text>
                 <Button 
                     onPress={() => navigation.navigate('Test')}
                     title='Move to another screen!'>                    

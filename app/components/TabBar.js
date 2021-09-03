@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
+import { useTheme } from '../contexts/ThemeProvider';
 import Tab from './Tab';
 
 const { width } = Dimensions.get('screen');
@@ -7,8 +8,9 @@ const { width } = Dimensions.get('screen');
 const TabBar = ({ state, navigation }) => {
   // console.log(state.routes)
   const [selected, setSelected] = useState('Home');
+  const {theme} = useTheme();
   const { routes } = state;
-  const renderColor = (currentTab) => (currentTab === selected ? 'red' : 'black');
+  const renderColor = (currentTab) => (currentTab === selected ? theme.nav.active : theme.nav.inActive);
 
   const handlePress = (activeTab, index) => {
     // console.log(activeTab);
@@ -22,7 +24,7 @@ const TabBar = ({ state, navigation }) => {
 
   return (
     <View style={styles.wrapper}>
-      <View style={styles.container}>
+      <View style={[styles.container, {backgroundColor: theme.nav.backgroundColor}]}>
         {
           routes.map((route, index) => (
             <Tab 
@@ -52,8 +54,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    backgroundColor: '#fff',
+    justifyContent: 'space-between',    
     width: 250,
     borderRadius: 100,
     elevation: 2,

@@ -5,8 +5,9 @@ export const defaultTheme = {
         backgroundColor: '#202124',
         active: '#fff',
         inActive: '#c489bc'
-    }
-}
+    },
+    themeMode: 'default',
+};
 
 export const darkTheme = {
     backgroundColor: '#202124',
@@ -15,5 +16,6 @@ export const darkTheme = {
         backgroundColor: '#c489bc',
         active: '#fff',
         inActive: '#202124'
-    }
-}
+    },
+    themeMode: 'dark',
+};

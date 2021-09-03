@@ -1,12 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import Profile from '../components/Profile';
 import Test from '../components/Test';
 
-const Stack = createNativeStackNavigator();
 
-
+const Stack = createStackNavigator();
 
 const ProfileNavigator = () => {
     return (
@@ -16,12 +14,5 @@ const ProfileNavigator = () => {
         </Stack.Navigator>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        
-    },
-    
-})
 
 export default ProfileNavigator;
